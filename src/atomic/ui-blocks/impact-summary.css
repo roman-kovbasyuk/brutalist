@@ -1,0 +1,21 @@
+/* Impact summary: the heading, then one Stat per supplied metric in supplied order. */
+.b-impact-summary { width: 100%; min-width: 0; container: b-impact-summary / inline-size; }
+.b-impact-summary__inner { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--a-space-8); padding-block: var(--a-space-12); }
+.b-impact-summary__metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr)); gap: var(--a-space-4); margin: 0; padding: 0; list-style: none; }
+.b-impact-summary__metric { display: grid; min-width: 0; }
+
+/* editorial: figures step up one type role; the first metric leads at the display role across the full width. */
+.b-impact-summary[data-layout='editorial'] .b-impact-summary__metrics { grid-template-columns: minmax(0, 1fr); }
+.b-impact-summary[data-layout='editorial'] .c-stat__value { --a-type-h2-size: var(--a-type-h1-size); --a-type-h2-line: var(--a-type-h1-line); }
+.b-impact-summary[data-layout='editorial'] .b-impact-summary__metric:first-child .c-stat__value { --a-type-h2-size: var(--a-type-display-size); --a-type-h2-line: var(--a-type-display-line); }
+.b-impact-summary[data-layout='editorial'] .b-impact-summary__metric:first-child .c-stat { padding: var(--a-space-6); }
+
+@container b-impact-summary (min-width: 30rem) {
+  .b-impact-summary[data-layout='editorial'] .b-impact-summary__metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .b-impact-summary[data-layout='editorial'] .b-impact-summary__metric:first-child { grid-column: 1 / -1; }
+}
+@container b-impact-summary (min-width: 48rem) {
+  .b-impact-summary__inner { padding-block: var(--a-space-16); }
+  .b-impact-summary[data-layout='row'] .b-impact-summary__inner { gap: var(--a-space-12); }
+  .b-impact-summary[data-layout='editorial'] .b-impact-summary__inner { grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); align-items: start; gap: var(--a-space-12); }
+}

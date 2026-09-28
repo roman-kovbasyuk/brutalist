@@ -1,0 +1,8 @@
+.c-disclosure__content { padding-block: var(--a-space-3); }
+.c-disclosure--quiet > .c-button { width: 100%; min-height: var(--a-size-small); justify-content: space-between; padding-inline: var(--a-space-2); text-align: start; }
+.c-disclosure--quiet > .c-button > .a-type { flex: 1 1 auto; min-width: 0; }
+.c-disclosure--quiet > .c-button:not(:disabled):hover { transform: none; box-shadow: none; border-color: transparent; background: var(--a-color-surface); }
+.c-disclosure--quiet > .c-button > .a-icon { transition: transform var(--a-motion-fast) var(--a-motion-out); }
+.c-disclosure--quiet > .c-button[aria-expanded='false'] > .a-icon { transform: rotate(-90deg); }
+.c-disclosure--quiet > .c-disclosure__content { padding-block: var(--a-space-1) 0; }
+@media (prefers-reduced-motion: reduce) { .c-disclosure--quiet > .c-button > .a-icon { transition: none; } }

@@ -1,0 +1,11 @@
+.b-release-notice { container-type: inline-size; width: 100%; min-width: 0; }
+/* Everything on the accent fill reads the on-accent ink: the link, its underline and focus rings, in both themes. */
+.b-release-notice__message { --a-color-ink: var(--a-color-on-accent); }
+.b-release-notice__message .c-text-action { text-decoration-color: currentColor; }
+
+/* Narrow: the destination moves under the message and the close control stays at the top end. */
+@container (max-width: 36rem) {
+  .b-release-notice > .b-release-notice__message { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: start; column-gap: var(--a-space-3); row-gap: var(--a-space-2); }
+  .b-release-notice__message > .c-text-action { grid-column: 2; justify-self: start; white-space: normal; }
+  .b-release-notice__message > button { grid-column: 3; grid-row: 1; margin-inline-start: 0; }
+}

@@ -1,0 +1,29 @@
+.b-code-example__source { margin: 0; padding: var(--a-space-4); background: var(--a-color-canvas); color: var(--a-color-ink); font-size: var(--a-type-small-size); line-height: var(--a-type-small-line); tab-size: 2; width: 100%; min-width: 0; white-space: pre-wrap; overflow-wrap: anywhere; word-break: break-word; }
+.b-code-example__token--keyword { color: var(--a-color-blue-600); font-weight: var(--a-type-h6-weight); }
+.b-code-example__token--string { color: var(--a-color-teal-800); }
+.b-code-example__token--tag { color: var(--a-color-red-800); }
+.b-code-example__token--number { color: var(--a-color-secondary); }
+.b-code-example__token--comment { color: var(--a-color-secondary); font-style: italic; }
+.b-code-example__header-controls { display: flex; justify-content: flex-end; align-items: center; flex-wrap: nowrap; gap: var(--a-space-4); width: auto; }
+.b-code-example__header-controls .c-segmented-scroll { padding-inline: 0; }
+.b-code-example__view-tabs { max-width: 100%; }
+.b-code-example__file { display: flex; align-items: center; justify-content: space-between; gap: var(--a-space-3); min-height: var(--a-size-small); }
+.b-code-example__copy:not(:disabled):hover { transform: none; box-shadow: none; border-color: transparent; background: var(--a-color-canvas); }
+.b-code-example__content { min-width: 0; padding: 0; }
+.b-code-example__preview {
+  display: grid;
+  place-items: center;
+  min-width: 0;
+  min-height: 22rem;
+  margin: 0;
+  padding: var(--a-space-8);
+  background-color: var(--a-color-surface);
+}
+:where(.b-code-example__preview) > * { min-width: 0; max-width: 100%; }
+.b-code-example__preview > .atomic-root { background: transparent; }
+.b-code-example .c-panel__header > .a-stack { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: var(--a-space-4); }
+.b-code-example .b-code-example__header-controls { grid-column: 2; grid-row: 1; }
+@media (max-width: 700px) {
+  .b-code-example .c-panel__header > .a-stack { grid-template-columns: minmax(0, 1fr); }
+  .b-code-example .b-code-example__header-controls { grid-column: 1; grid-row: 2; justify-self: start; flex-wrap: wrap; }
+}

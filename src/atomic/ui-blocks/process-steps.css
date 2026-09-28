@@ -1,0 +1,25 @@
+/* Process steps: an ordered list read in supplied order. Narrow containers always use the vertical rail. */
+.b-process-steps { width: 100%; min-width: 0; container: b-process-steps / inline-size; }
+.b-process-steps__inner { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--a-space-8); padding-block: var(--a-space-12); }
+.b-process-steps__list { display: grid; margin: 0; padding: 0; list-style: none; }
+.b-process-steps__step { position: relative; display: grid; grid-template-columns: var(--a-size-control) minmax(0, 1fr); gap: var(--a-space-4); min-width: 0; padding-block-end: var(--a-space-8); }
+.b-process-steps__step:last-child { padding-block-end: 0; }
+/* The rail joins each marker to the next one. */
+.b-process-steps__step:not(:last-child)::before { content: ''; position: absolute; inset-block: var(--a-size-control) 0; inset-inline-start: calc(var(--a-size-control) / 2); border-inline-start: var(--a-border-width) solid var(--a-color-ink); }
+.b-process-steps__marker { position: relative; display: grid; place-items: center; width: var(--a-size-control); height: var(--a-size-control); border: var(--a-border-width) solid var(--a-color-ink); border-radius: var(--a-radius-small); background: var(--a-color-ink); color: var(--a-color-surface); font-variant-numeric: tabular-nums; }
+.b-process-steps__content { display: grid; align-content: start; gap: var(--a-space-2); min-width: 0; padding-block-start: var(--a-space-3); }
+.b-process-steps__content > p { max-width: 40rem; }
+.b-process-steps__link { justify-self: start; margin-block-start: var(--a-space-2); }
+
+@container b-process-steps (min-width: 48rem) {
+  .b-process-steps__inner { gap: var(--a-space-12); padding-block: var(--a-space-16); }
+
+  /* horizontal: steps side by side along one track; a step that wraps starts its own row. */
+  .b-process-steps[data-orientation='horizontal'] .b-process-steps__list { grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr)); row-gap: var(--a-space-8); }
+  .b-process-steps[data-orientation='horizontal'] .b-process-steps__step { grid-template-columns: minmax(0, 1fr); align-content: start; padding-block-end: 0; padding-inline-end: var(--a-space-6); }
+  .b-process-steps[data-orientation='horizontal'] .b-process-steps__step:not(:last-child)::before { inset-block: calc(var(--a-size-control) / 2) auto; inset-inline: var(--a-size-control) 0; border-inline-start: 0; border-block-start: var(--a-border-width) solid var(--a-color-ink); }
+  .b-process-steps[data-orientation='horizontal'] .b-process-steps__content { padding-block-start: 0; }
+
+  /* vertical: the heading holds the first column while the steps run down the second. */
+  .b-process-steps[data-orientation='vertical'] .b-process-steps__inner { grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); align-items: start; }
+}

@@ -1,0 +1,4 @@
+.c-date-range-picker { width: min(100%, 24rem); max-width: 100%; align-self: flex-start; }
+.c-date-range-picker__field { gap: var(--a-space-3); }
+.c-date-range-picker__field .c-date-field__input { flex: 1 1 0; }
+.c-date-range-picker__actions { justify-content: flex-end; }

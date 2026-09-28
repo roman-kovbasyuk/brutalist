@@ -1,0 +1,11 @@
+/* The confirmation occupies the trigger's place; on one line it keeps the trigger's 48px height, so nothing below moves. */
+.c-inline-confirmation { display: inline-grid; gap: var(--a-space-2); min-width: 0; max-width: 100%; vertical-align: middle; }
+.c-inline-confirmation__panel { display: flex; flex-wrap: wrap; align-items: center; gap: var(--a-space-2) var(--a-space-3); min-width: 0; min-height: var(--a-size-control); padding: calc(var(--a-space-2) - var(--a-border-width)) calc(var(--a-space-2) - var(--a-border-width)) calc(var(--a-space-2) - var(--a-border-width)) var(--a-space-3); border: var(--a-border-width) solid var(--a-color-ink); border-radius: var(--a-radius-small); background: var(--a-color-surface); box-shadow: var(--a-shadow-small); animation: c-inline-confirmation-in var(--a-motion-fast) var(--a-motion-out); }
+.c-inline-confirmation__icon { color: var(--a-color-ink); }
+.c-inline-confirmation__panel[data-tone='danger'] .c-inline-confirmation__icon { color: var(--a-color-danger); }
+.c-inline-confirmation__copy { display: grid; flex: 1 1 auto; min-width: min(100%, 10rem); }
+.c-inline-confirmation__actions { display: flex; flex: none; gap: var(--a-space-2); margin-inline-start: auto; }
+.c-inline-confirmation__error { display: flex; align-items: flex-start; gap: var(--a-space-1); padding-inline-start: var(--a-space-3); color: var(--a-color-danger); overflow-wrap: anywhere; }
+.c-inline-confirmation__error > .a-icon { margin-block-start: 2px; }
+@keyframes c-inline-confirmation-in { from { opacity: 0; transform: translateY(calc(-1 * var(--a-border-width) * 2)); } }
+@media (prefers-reduced-motion: reduce) { .c-inline-confirmation__panel { animation: none; } }

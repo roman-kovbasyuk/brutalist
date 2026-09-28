@@ -1,0 +1,40 @@
+.c-navigation-row { display:flex; flex-wrap:wrap; align-items:center; gap:var(--a-space-1); min-width:0; border-radius:var(--a-radius-small); }
+.c-navigation-row:has([aria-current=page]), .c-navigation-row:hover, .c-navigation-row:has(.c-navigation-row__static:focus-visible) { background:var(--a-color-surface); }
+.c-navigation-row > a { display:flex; align-items:center; gap:var(--a-space-2); flex:1; min-width:0; min-height:36px; padding:var(--a-space-2); color:var(--a-color-ink); text-decoration:none; border-radius:var(--a-radius-small); }
+.c-navigation-row__static { display:flex; align-items:center; gap:var(--a-space-2); min-width:0; min-height:36px; padding:var(--a-space-2); appearance:none; border:0; border-radius:var(--a-radius-small); background:transparent; color:var(--a-color-secondary); font:inherit; text-align:start; cursor:default; }
+.c-navigation-row__label--visually-hidden { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0, 0, 0, 0); white-space:nowrap; border:0; }
+.c-navigation-row__static > span:first-of-type, .c-navigation-row > a > span:first-of-type { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.c-navigation-row--missing { opacity: .72; }
+.c-navigation-row--unavailable { opacity: 1; }
+.c-navigation-row--unavailable .c-navigation-row__static > span:first-of-type { color: var(--a-color-danger); font-weight: var(--a-type-h6-weight); }
+.c-navigation-row > a > span { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.c-navigation-row > a[aria-current=page] { font-weight:600; box-shadow:inset 0 0 0 var(--a-border-width) var(--a-color-ink); }
+/* With a trailing action, the current outline wraps the whole row so the action sits inside it. */
+.c-navigation-row:has(> a[aria-current=page]):has(> :not(a):not(.c-navigation-row__disclosure)) { box-shadow:inset 0 0 0 var(--a-border-width) var(--a-color-ink); }
+.c-navigation-row:has(> a[aria-current=page]):has(> :not(a):not(.c-navigation-row__disclosure)) > a[aria-current=page] { box-shadow:none; }
+.c-navigation-row__disclosure { flex: 1 0 calc(100% - var(--a-space-4)); margin-inline-start: var(--a-space-4); }
+.c-navigation-row__disclosure > .c-button { min-height: 32px; justify-content: flex-start; padding-inline: var(--a-space-2); }
+.c-navigation-row__disclosure .c-disclosure__content { padding-inline-start: var(--a-space-2); }
+.c-navigation-row--compact { flex-wrap:nowrap; }
+.c-navigation-row--compact > a, .c-navigation-row--compact > .c-navigation-row__static { justify-content: center; flex: 1; }
+.c-navigation-row--compact > .c-disclosure { flex: 0 0 auto; }
+.c-navigation-row--compact > .c-disclosure > .c-button { width: var(--a-size-compact); justify-content: center; padding: 0; }
+.c-navigation-list__group { margin: var(--a-space-3) var(--a-space-2) var(--a-space-1); }
+/* Row actions stay within the 36px row height. */
+.c-navigation-row > .c-button[data-icon-only] { width: var(--a-size-small); min-height: var(--a-size-small); padding: var(--a-space-1); }
+.c-navigation-row > .c-button[data-icon-only]:not(:disabled):hover { transform: none; box-shadow: none; border-color: transparent; background: var(--a-color-canvas); }
+
+/* Interactive rows lift on hover and keyboard focus, like buttons. */
+.c-navigation-row { transition: transform var(--a-motion-fast) var(--a-motion-out), box-shadow var(--a-motion-fast) var(--a-motion-out); }
+.c-navigation-row:not(:has(> .c-navigation-row__disclosure)):has(> a:hover, > a:focus-visible) { transform: translate(var(--a-motion-lift), var(--a-motion-lift)); box-shadow: inset 0 0 0 var(--a-border-width) var(--a-color-ink), var(--a-shadow-small); }
+@media (prefers-reduced-motion: reduce) { .c-navigation-row { transition: none; } .c-navigation-row:has(> a:hover, > a:focus-visible) { transform: none; } }
+
+
+/* A row with a submenu: a small chevron at the end of the row opens it; the child links hang below on an indented rule. */
+.c-navigation-row:not(.c-navigation-row--compact):has(> .c-navigation-row__disclosure) { position: relative; background: transparent; }
+.c-navigation-row:not(.c-navigation-row--compact):has(> .c-navigation-row__disclosure) > a { padding-inline-end: calc(var(--a-size-small) + var(--a-space-2)); }
+.c-navigation-row:not(.c-navigation-row--compact):has(> .c-navigation-row__disclosure) > a:is(:hover, [aria-current=page]) { background: var(--a-color-surface); }
+.c-navigation-row:not(.c-navigation-row--compact) > .c-navigation-row__disclosure > .c-button { position: absolute; top: 2px; right: 2px; width: var(--a-size-small); min-height: var(--a-size-small); padding: 0; justify-content: center; }
+.c-navigation-row:not(.c-navigation-row--compact) > .c-navigation-row__disclosure > .c-button > .a-type { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.c-navigation-row:not(.c-navigation-row--compact) > .c-navigation-row__disclosure > .c-disclosure__content { padding-block: 0 var(--a-space-2); padding-inline-start: var(--a-space-2); border-inline-start: var(--a-border-width) solid color-mix(in srgb, var(--a-color-ink) 24%, transparent); }
+.c-navigation-row:not(.c-navigation-row--compact) > .c-navigation-row__disclosure .c-navigation-row > a { min-height: 32px; padding-block: var(--a-space-1); }

@@ -1,0 +1,6 @@
+/* The trigger reads as a search field: wide, start-aligned, with the shortcut at the far edge. */
+.b-command-search__trigger { min-width: min(18rem, 100%); max-width: 100%; justify-content: flex-start; color: var(--a-color-secondary); }
+.b-command-search__trigger > .a-type { display: flex; flex: 1 1 auto; align-items: center; justify-content: space-between; gap: var(--a-space-3); min-width: 0; font-weight: 400; }
+.b-command-search__trigger > .a-icon { color: var(--a-color-ink); }
+.b-command-search__label { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.b-command-search__trigger .c-kbd { flex: none; color: var(--a-color-ink); }

@@ -1,0 +1,4 @@
+.b-prompt-input { width: min(600px, calc(100vw - var(--a-space-8))); margin-inline: auto; }
+.b-prompt-input .c-attachment-area { width: 100%; }
+.b-prompt-input__selector:not(:disabled):hover { transform: none; box-shadow: none; border-color: transparent; background: var(--a-color-canvas); }
+.b-prompt-input__selector[data-state='open'] { background: var(--a-color-canvas); }

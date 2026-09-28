@@ -1,0 +1,33 @@
+/* Subscription section: one controlled email field, a primary action and the supplied consent copy. */
+.b-subscription { container-type: inline-size; width: 100%; min-width: 0; overflow: hidden; border: var(--a-border-width) solid var(--a-color-ink); border-radius: var(--a-radius-large); background: var(--a-color-surface); }
+.b-subscription__body { display: grid; gap: var(--a-space-6); min-width: 0; padding: var(--a-space-8); }
+.b-subscription__form { min-width: 0; }
+.b-subscription__form > .a-stack { gap: var(--a-space-4); }
+.b-subscription__row { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: start; gap: var(--a-space-3); min-width: 0; max-width: 36rem; }
+/* Line the button up with the input rather than the label, and keep it there when an error appears below the field. */
+.b-subscription__submit { margin-block-start: calc(var(--a-type-h7-line) + var(--a-space-2)); }
+.b-subscription__consent { max-width: 60ch; --a-type-h6-size: var(--a-type-small-size); --a-type-h6-line: var(--a-type-small-line); }
+
+/* Context: the introduction on the canvas tone beside the form, divided by an ink rule. */
+.b-subscription[data-layout='context'] .b-subscription__body { gap: 0; padding: 0; }
+.b-subscription[data-layout='context'] .b-subscription__intro { padding: var(--a-space-8); background: var(--a-color-canvas); border-block-end: var(--a-border-width) solid var(--a-color-ink); }
+.b-subscription[data-layout='context'] .b-subscription__form { padding: var(--a-space-8); }
+.b-subscription[data-layout='context'] .b-subscription__row { grid-template-columns: minmax(0, 1fr); max-width: none; }
+.b-subscription[data-layout='context'] .b-subscription__submit { width: 100%; margin-block-start: 0; }
+
+/* Compact reads as one band on wide screens: the introduction beside the inline field. */
+@container (min-width: 56rem) {
+  .b-subscription[data-layout='compact'] .b-subscription__body { grid-template-columns: minmax(0, 1fr) minmax(0, 32rem); align-items: center; column-gap: var(--a-space-12); }
+}
+@container (min-width: 48rem) {
+  .b-subscription[data-layout='context'] .b-subscription__body { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .b-subscription[data-layout='context'] .b-subscription__intro { border-block-end: 0; border-inline-end: var(--a-border-width) solid var(--a-color-ink); }
+  .b-subscription[data-layout='context'] .b-subscription__form { align-self: center; }
+}
+@container (max-width: 30rem) {
+  .b-subscription__body,
+  .b-subscription[data-layout='context'] .b-subscription__intro,
+  .b-subscription[data-layout='context'] .b-subscription__form { padding: var(--a-space-4); }
+  .b-subscription__row { grid-template-columns: minmax(0, 1fr); }
+  .b-subscription__submit { width: 100%; margin-block-start: 0; }
+}

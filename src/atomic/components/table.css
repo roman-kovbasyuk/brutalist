@@ -1,0 +1,20 @@
+.c-table { width: 100%; border-collapse: collapse; background: var(--a-color-surface); }
+.c-table th, .c-table td { padding: var(--a-space-4); border: var(--a-border-width) solid var(--a-color-ink); text-align: start; vertical-align: middle; }
+.c-table [data-align='center'] { text-align: center; }
+.c-table [data-align='end'] { text-align: end; }
+.c-table__selection { width: 1%; white-space: nowrap; }
+.c-table__selection > * { margin: 0; }
+.c-table__status > td { text-align: start; }
+.c-table__status .c-alert { width: 100%; }
+.c-table th { font-weight: var(--a-type-h7-weight); }
+.c-table thead th { background: var(--a-color-canvas); }
+.c-table th:has(.c-table__sort) { padding: 0; }
+.c-table__sort { width: 100%; min-height: var(--a-size-control); display: flex; align-items: center; justify-content: space-between; gap: var(--a-space-3); padding: var(--a-space-4); border: 0; background: transparent; color: inherit; cursor: pointer; text-align: start; }
+.c-table th[data-align='center'] .c-table__sort { justify-content: center; }
+.c-table th[data-align='end'] .c-table__sort { justify-content: flex-end; }
+.c-table__sort:hover, .c-table__sort:focus-visible { background: var(--a-color-canvas); outline-offset: calc(-1 * var(--a-focus-width)); }
+/* Simple: rules between rows only, a stronger rule under the header. */
+.c-table[data-variant='simple'] th, .c-table[data-variant='simple'] td { border-inline: 0; border-block-start: 0; }
+.c-table[data-variant='simple'] thead th { background: transparent; border-block-end-width: var(--a-focus-width); color: var(--a-color-secondary); font-size: var(--a-type-small-size); }
+.c-table[data-variant='simple'] tbody tr:last-child td { border-block-end: 0; }
+.c-table[data-striped] tbody tr:nth-child(even) td { background: var(--a-color-canvas); }

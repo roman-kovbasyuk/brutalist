@@ -1,0 +1,44 @@
+/* Plan comparison: supplied plans as bordered cards or as one feature table. Prices are displayed, never computed. */
+.b-plan-comparison { container-type: inline-size; display: grid; gap: var(--a-space-8); width: 100%; min-width: 0; }
+.b-plan-comparison__assistive { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+
+/* The switch wrapper takes the heading's action slot, leaving the control room for its focus and lift padding. */
+.b-plan-comparison__period { min-width: 0; }
+
+/* Cards */
+.b-plan-comparison__plans { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr)); gap: var(--a-space-6); margin: 0; padding: 0; list-style: none; }
+/* Each card spans the same rows (header, description, price, features, action) so they line up across a row of cards. */
+.b-plan-comparison__plan { display: grid; grid-row: span var(--plan-rows); grid-template-rows: subgrid; row-gap: var(--a-space-6); min-width: 0; padding: var(--a-space-6); border: var(--a-border-width) solid var(--a-color-ink); border-radius: var(--a-radius-large); background: var(--a-color-surface); }
+@supports not (grid-template-rows: subgrid) { .b-plan-comparison__plan { grid-row: auto; grid-template-rows: none; } }
+/* Featured: a doubled ink edge and the interactive offset, the same vocabulary as a selected choice card. */
+.b-plan-comparison__plan[data-featured] { box-shadow: inset 0 0 0 var(--a-border-width) var(--a-color-ink), var(--a-shadow-interactive); }
+.b-plan-comparison__plan-header { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--a-space-2) var(--a-space-3); }
+.b-plan-comparison__plan-header > .a-type { flex: 1 1 8rem; min-width: 0; }
+.b-plan-comparison__price { display: grid; gap: var(--a-space-2); }
+.b-plan-comparison__amount { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 var(--a-space-2); margin: 0; }
+.b-plan-comparison__unavailable { min-height: var(--a-type-display-line); display: flex; align-items: center; }
+.b-plan-comparison__features { display: grid; align-content: start; gap: var(--a-space-3); margin: 0; padding: var(--a-space-6) 0 0; border-block-start: var(--a-border-width) solid var(--a-color-ink); list-style: none; }
+.b-plan-comparison__feature { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--a-space-3); min-width: 0; }
+.b-plan-comparison__feature-label { flex: 1 1 auto; min-width: 0; }
+.b-plan-comparison__feature > :last-child { flex: 0 1 auto; max-width: 50%; text-align: end; }
+/* Relative, so the assistive text stays inside the table's scroll area instead of widening the page. */
+.b-plan-comparison__mark { position: relative; display: inline-flex; align-items: center; justify-content: center; width: var(--a-icon-medium); height: var(--a-type-body-line); color: var(--a-color-ink); }
+.b-plan-comparison__mark[data-included='false'] { color: var(--a-color-secondary); }
+.b-plan-comparison__action-slot { align-self: end; }
+
+/* Table: one row per feature, joined by id; the scroll area keeps rows and columns together on narrow screens. */
+.b-plan-comparison__table { min-width: 0; }
+.b-plan-comparison__table .c-table { min-width: calc(12rem + var(--plan-count) * 11rem); table-layout: fixed; }
+.b-plan-comparison__table .c-table th:first-child,
+.b-plan-comparison__table .c-table td:first-child { width: 12rem; }
+.b-plan-comparison__table .c-table td { vertical-align: top; }
+.b-plan-comparison__table .c-table td:has(> .b-plan-comparison__cell[data-featured]) { background: var(--a-color-canvas); }
+.b-plan-comparison__row-label { display: grid; gap: var(--a-space-1); }
+.b-plan-comparison__cell { display: grid; justify-items: start; gap: var(--a-space-3); min-width: 0; }
+.b-plan-comparison__cell .b-plan-comparison__unavailable { min-height: 0; }
+.b-plan-comparison__badge-space { visibility: hidden; }
+
+/* Narrow sections: a smaller headline price (Text reads its size from these variables) so long supplied values fit the card. */
+@container (max-width: 36rem) {
+  .b-plan-comparison__plan { --a-type-display-size: var(--a-type-h1-size); --a-type-display-line: var(--a-type-h1-line); padding: var(--a-space-4); }
+}

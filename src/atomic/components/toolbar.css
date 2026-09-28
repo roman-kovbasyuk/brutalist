@@ -1,0 +1,6 @@
+.c-toolbar { display: inline-flex; flex-wrap: wrap; align-items: center; gap: var(--a-space-2); max-width: 100%; }
+.c-toolbar[aria-orientation='vertical'] { flex-direction: column; align-items: stretch; }
+.c-toolbar__entry { display: inline-flex; align-items: center; gap: var(--a-space-2); }
+.c-toolbar__separator { align-self: stretch; border-inline-start: var(--a-border-width) solid var(--a-color-ink); }
+.c-toolbar[aria-orientation='vertical'] .c-toolbar__entry { flex-direction: column; align-items: stretch; }
+.c-toolbar[aria-orientation='vertical'] .c-toolbar__separator { border-inline-start: 0; border-block-start: var(--a-border-width) solid var(--a-color-ink); }

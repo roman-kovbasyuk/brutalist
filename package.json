@@ -1,0 +1,17 @@
+{
+  "name": "brutalist-design-system",
+  "version": "0.1.5",
+  "private": true,
+  "type": "module",
+  "description": "React 19 components and blocks in a Brutalist style.",
+  "license": "MIT",
+  "homepage": "https://brutalistui.com",
+  "peerDependencies": {
+    "react": ">=19",
+    "react-dom": ">=19"
+  },
+  "dependencies": {
+    "lucide-react": "^1.43.0",
+    "radix-ui": "^1.6.7"
+  }
+}

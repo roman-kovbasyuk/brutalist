@@ -1,0 +1,12 @@
+.c-attachment-area { width: 100%; min-width: 0; }
+.c-attachment-area[data-dragging] { background:var(--a-color-canvas); box-shadow:inset 0 0 0 var(--a-border-width) var(--a-color-ink); outline:var(--a-focus-width) dashed var(--a-color-ink); outline-offset:var(--a-focus-offset); }
+.c-attachment-area__content { display:flex; flex-direction:column; gap:var(--a-space-2); width:100%; min-width:0; }
+.c-attachment-area__content > .a-inline { width:100%; align-items:flex-start; }
+.c-attachment-area__content > .c-field { width:100%; }
+.c-attachment-area__toolbar { justify-content:space-between; }
+.c-attachment-area__toolbar { width:100%; }
+.c-attachment-area__actions { margin-inline-start:auto; }
+.c-attachment-area__picker { position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); }
+.c-attachment-area__content > .c-file-list { border-block-start: var(--a-border-width) solid var(--a-color-ink); }
+.c-attachment-area__content > .c-file-list li:last-child { border-block-end: 0; padding-block-end: 0; }
+.c-attachment-area__tools { align-items: center; }

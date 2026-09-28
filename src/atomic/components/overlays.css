@@ -1,0 +1,39 @@
+.c-overlay-root { display: contents; }
+.c-backdrop { position: fixed; inset: 0; z-index: var(--a-layer-modal); background: var(--a-color-backdrop); }
+.c-menu-trigger, .c-dialog-trigger, .c-drawer-trigger, .c-tooltip-trigger { align-self: flex-start; }
+.c-modal { position: fixed; inset-block-start: 50%; inset-inline-start: 50%; transform: translate(-50%, -50%); inline-size: min(36rem, calc(100vw - var(--a-space-8))); max-block-size: calc(100dvh - var(--a-space-8)); overflow: auto; z-index: var(--a-layer-modal); padding: var(--a-space-8); border: var(--a-border-width) solid var(--a-color-ink); border-radius: var(--a-radius-large); box-shadow: var(--a-shadow-floating); background: var(--a-color-surface); }
+.c-modal[data-size='small'] { inline-size: min(24rem, calc(100vw - var(--a-space-8))); }
+.c-modal[data-size='medium'] { inline-size: min(36rem, calc(100vw - var(--a-space-8))); }
+.c-modal[data-size='large'] { inline-size: min(52rem, calc(100vw - var(--a-space-8))); }
+.c-modal__header { display: flex; justify-content: space-between; gap: var(--a-space-4); align-items: center; }
+.c-drawer { inset-block: 0; inset-inline-end: 0; inset-inline-start: auto; transform: none; inline-size: min(32rem, 100vw); block-size: 100dvh; max-block-size: none; border-radius: 0; }
+.c-drawer[data-size='small'] { inline-size: min(22rem, 100vw); }
+.c-drawer[data-size='large'] { inline-size: min(42rem, 100vw); }
+.c-drawer[data-side='left'] { inset-inline-start: 0; inset-inline-end: auto; }
+.c-drawer[data-side='left']:dir(rtl) { inset-inline-start: auto; inset-inline-end: 0; }
+.c-drawer[data-side='right']:dir(rtl) { inset-inline-start: 0; inset-inline-end: auto; }
+.c-drawer[data-side='top'], .c-drawer[data-side='bottom'] { inset-inline: 0; inline-size: 100vw; block-size: min(32rem, 80dvh); }
+.c-drawer[data-side='top'][data-size='small'], .c-drawer[data-side='bottom'][data-size='small'] { block-size: min(24rem, 80dvh); }
+.c-drawer[data-side='top'][data-size='large'], .c-drawer[data-side='bottom'][data-size='large'] { block-size: min(48rem, 80dvh); }
+.c-drawer[data-side='top'] { inset-block-start: 0; inset-block-end: auto; }
+.c-drawer[data-side='bottom'] { inset-block-start: auto; inset-block-end: 0; }
+.c-popup { z-index: var(--a-layer-popover); min-width: min(15rem, calc(100vw - var(--a-space-8))); max-width: min(28rem, calc(100vw - var(--a-space-8))); max-height: var(--radix-popover-content-available-height, 70vh); overflow: auto; padding: var(--a-space-4); background: var(--a-color-surface); border: var(--a-border-width) solid var(--a-color-ink); border-radius: var(--a-radius-small); box-shadow: var(--a-shadow-interactive); }
+.c-menu { min-width: max(min(15rem, calc(100vw - var(--a-space-8))), var(--radix-dropdown-menu-trigger-width, 0px)); padding: var(--a-space-1); }
+.c-menu__item { display: flex; align-items: center; gap: var(--a-space-2); width: 100%; min-height: var(--a-size-compact); margin: 0; padding: var(--a-space-2) var(--a-space-3); border: 0; border-radius: var(--a-radius-small); background: transparent; box-shadow: none; cursor: pointer; outline: none; transform: none; }
+/* Pointer highlight stays quiet; keyboard focus adds an inset ink edge instead of the global outline. */
+.c-menu__item[data-highlighted] { background: var(--a-color-canvas); }
+.c-menu__item:focus-visible { outline: none; box-shadow: inset 0 0 0 var(--a-border-width) var(--a-color-ink); }
+/* A trigger that regains focus after a pointer close shows no ring until the next key press. */
+.atomic-root [data-focus-quiet]:focus-visible { outline: none; }
+.c-menu__item[data-danger] { color: var(--a-color-danger); }
+.c-menu__item[data-disabled] { opacity: var(--a-state-disabled); cursor: not-allowed; }
+.c-menu__copy { display: grid; flex: 1; gap: var(--a-space-1); text-align: start; }
+.c-menu__group-label { padding: var(--a-space-2) var(--a-space-3); color: var(--a-color-secondary); font-size: var(--a-type-small-size); font-weight: var(--a-type-small-weight); }
+.c-menu__separator { height: var(--a-border-width); margin-block: var(--a-space-1); background: var(--a-color-ink); }
+.c-menu__shortcut { margin-inline-start: auto; font: inherit; color: var(--a-color-secondary); }
+.c-menu__radio-dot { display: block; width: var(--a-size-marker); height: var(--a-size-marker); border-radius: 50%; background: currentColor; }
+.c-tooltip { max-width: min(20rem, calc(100vw - var(--a-space-8))); padding: var(--a-space-2) var(--a-space-3); background: var(--a-color-ink); color: var(--a-color-surface); border-radius: var(--a-radius-small); z-index: var(--a-layer-toast); }
+/* Radio and checkbox items keep an indicator column, so checked and unchecked labels align. */
+.c-menu__item { position: relative; }
+.c-menu__item:is([role='menuitemradio'], [role='menuitemcheckbox']) { padding-inline-start: calc(var(--a-space-3) + var(--a-icon-small) + var(--a-space-2)); }
+.c-menu__indicator { position: absolute; inset-inline-start: var(--a-space-3); top: 50%; display: grid; place-items: center; width: var(--a-icon-small); height: var(--a-icon-small); transform: translateY(-50%); }

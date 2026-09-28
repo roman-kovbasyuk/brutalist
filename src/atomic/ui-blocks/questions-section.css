@@ -1,0 +1,9 @@
+/* Questions section: the introduction beside the question groups on wide screens, above them on narrow ones. */
+.b-questions { container-type: inline-size; width: 100%; min-width: 0; }
+.b-questions__body { display: grid; gap: var(--a-space-8); min-width: 0; }
+.b-questions__intro { min-width: 0; }
+.b-questions__groups { display: grid; gap: var(--a-space-8); min-width: 0; }
+.b-questions__group { display: grid; gap: var(--a-space-3); min-width: 0; }
+@container (min-width: 52rem) {
+  .b-questions__body { grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); align-items: start; gap: var(--a-space-12); }
+}

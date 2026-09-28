@@ -1,0 +1,36 @@
+/* Capability grid: each item reads title → description → link → media. Columns follow the section's own width. */
+.b-capability-grid { width: 100%; min-width: 0; container: b-capability-grid / inline-size; }
+.b-capability-grid__inner { display: grid; gap: var(--a-space-8); padding-block: var(--a-space-12); }
+.b-capability-grid__items { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--a-space-8) var(--a-space-6); margin: 0; padding: 0; list-style: none; }
+.b-capability-grid__item { display: flex; flex-direction: column; gap: var(--a-space-4); min-width: 0; }
+.b-capability-grid__copy { display: grid; align-content: start; gap: var(--a-space-2); min-width: 0; }
+.b-capability-grid__copy > p { max-width: 40rem; }
+.b-capability-grid__link { justify-self: start; margin-block-start: var(--a-space-2); }
+.b-capability-grid__media { min-width: 0; }
+
+/* list: equal columns separated by ink rules; wide has no effect. */
+.b-capability-grid[data-layout='list'] .b-capability-grid__item { padding-block-start: var(--a-space-4); border-block-start: var(--a-border-width) solid var(--a-color-ink); }
+
+/* mixed: bordered tiles; media fills the lower part of the tile on a canvas field. */
+.b-capability-grid[data-layout='mixed'] .b-capability-grid__items { gap: var(--a-space-4); }
+.b-capability-grid[data-layout='mixed'] .b-capability-grid__item { gap: 0; overflow: hidden; border: var(--a-border-width) solid var(--a-color-ink); border-radius: var(--a-radius-small); background: var(--a-color-surface); }
+.b-capability-grid[data-layout='mixed'] .b-capability-grid__copy { padding: var(--a-space-6); }
+.b-capability-grid[data-layout='mixed'] .b-capability-grid__media { display: grid; flex: 1 0 auto; align-content: center; padding: var(--a-space-6); border-block-start: var(--a-border-width) solid var(--a-color-ink); background: var(--a-color-canvas); }
+
+@container b-capability-grid (min-width: 36rem) {
+  .b-capability-grid__items { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .b-capability-grid[data-layout='mixed'] .b-capability-grid__item[data-wide] { grid-column: span 2; }
+}
+@container b-capability-grid (min-width: 44rem) {
+  /* A wide tile has room to set its media beside the copy. */
+  .b-capability-grid[data-layout='mixed'] .b-capability-grid__item[data-wide][data-has-media] { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .b-capability-grid[data-layout='mixed'] .b-capability-grid__item[data-wide] .b-capability-grid__media { border-block-start: 0; border-inline-start: var(--a-border-width) solid var(--a-color-ink); }
+}
+@container b-capability-grid (min-width: 48rem) {
+  .b-capability-grid__inner { gap: var(--a-space-12); padding-block: var(--a-space-16); }
+  .b-capability-grid__items { row-gap: var(--a-space-12); column-gap: var(--a-space-8); }
+  .b-capability-grid[data-layout='mixed'] .b-capability-grid__items { gap: var(--a-space-6); }
+}
+@container b-capability-grid (min-width: 56rem) {
+  .b-capability-grid__items { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}

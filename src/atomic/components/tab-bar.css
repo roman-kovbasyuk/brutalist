@@ -1,0 +1,14 @@
+.c-tab-bar { border-top: var(--a-border-width) solid var(--a-color-ink); background: var(--a-color-surface); padding-bottom: env(safe-area-inset-bottom, 0); }
+.c-tab-bar ul { display: grid; margin: 0; padding: var(--a-space-1) var(--a-space-2); list-style: none; }
+.c-tab-bar :is(a, button) { display: grid; justify-items: center; gap: 2px; width: 100%; min-height: 56px; padding: var(--a-space-1) 0; border: 0; background: transparent; color: var(--a-color-secondary); font: inherit; text-decoration: none; cursor: pointer; }
+.c-tab-bar__icon { position: relative; display: grid; place-items: center; width: 56px; height: 30px; border: var(--a-border-width) solid transparent; border-radius: var(--a-radius-pill); transition: background-color var(--a-motion-fast) var(--a-motion-out); }
+.c-tab-bar [aria-current='page'] { color: var(--a-color-ink); font-weight: 600; }
+.c-tab-bar [aria-current='page'] .c-tab-bar__icon { border-color: var(--a-color-ink); background: var(--a-color-accent); color: var(--a-color-on-accent); }
+.c-tab-bar :is(a, button):focus-visible { outline-offset: calc(var(--a-focus-offset) * -1); border-radius: var(--a-radius-small); }
+.c-tab-bar__count { position: absolute; top: -6px; right: 6px; min-width: 18px; height: 18px; padding-inline: 4px; border: var(--a-border-width) solid var(--a-color-surface); border-radius: var(--a-radius-pill); background: var(--a-color-danger); color: var(--a-color-surface); font-size: 11px; font-weight: 700; line-height: 16px; text-align: center; }
+@media (prefers-reduced-motion: reduce) { .c-tab-bar__icon { transition: none; } }
+.c-tab-bar__hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.c-tab-bar :is(a, button) { position: relative; }
+.c-tab-bar__icon { transition: background-color var(--a-motion-fast) var(--a-motion-out), transform var(--a-motion-fast) var(--a-motion-out), box-shadow var(--a-motion-fast) var(--a-motion-out); }
+.c-tab-bar :is(a, button):is(:hover, :focus-visible) .c-tab-bar__icon { border-color: var(--a-color-ink); transform: translate(var(--a-motion-lift), var(--a-motion-lift)); box-shadow: var(--a-shadow-small); }
+@media (prefers-reduced-motion: reduce) { .c-tab-bar :is(a, button):is(:hover, :focus-visible) .c-tab-bar__icon { transform: none; } }

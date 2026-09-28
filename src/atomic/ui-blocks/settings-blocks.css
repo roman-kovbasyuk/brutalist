@@ -1,0 +1,43 @@
+/* Settings panels: a split Panel whose sections read as label | controls rows and whose actions close the form. */
+.b-settings-panel { width: min(100%, 48rem); container-type: inline-size; }
+.b-settings-panel__sections { display: grid; }
+.b-settings-panel__section { display: grid; grid-template-columns: minmax(0, 1fr); align-items: start; gap: var(--a-space-2) var(--a-space-8); min-width: 0; margin: 0; padding: var(--a-space-6) 0; border: 0; border-block-start: var(--a-border-width) solid var(--a-color-ink); border-radius: 0; }
+.b-settings-panel__section:first-child { padding-block-start: 0; border-block-start: 0; }
+.b-settings-panel__section:last-child { padding-block-end: 0; }
+/* A floated legend lays out like any other child, so it can take a grid cell. */
+.b-settings-panel__section > legend { float: left; width: 100%; margin: 0; padding: 0; --a-type-h7-size: var(--a-type-h6-size); --a-type-h7-line: var(--a-type-h6-line); }
+.b-settings-panel__section > .a-stack { display: contents; }
+.b-settings-panel__section > .a-stack > .a-stack,
+.b-settings-panel__section > .b-settings-panel__controls { margin-block-start: var(--a-space-2); }
+.b-settings-panel__controls { display: grid; gap: var(--a-space-2); min-width: 0; }
+.b-settings-panel__controls > .c-toggle,
+.b-settings-panel__controls > label { justify-self: start; }
+.b-settings-panel__footer { display: flex; justify-content: flex-end; padding-block-start: var(--a-space-2); }
+.b-settings-panel__footer .a-inline { justify-content: flex-end; }
+@container (min-width: 36rem) {
+  .b-settings-panel__section { grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); grid-template-rows: auto 1fr; }
+  .b-settings-panel__section > legend { grid-column: 1; grid-row: 1; }
+  .b-settings-panel__section [id$='-hint'] { grid-column: 1; grid-row: 2; }
+  .b-settings-panel__section > .b-settings-panel__controls,
+  .b-settings-panel__section > .a-stack > .a-stack { grid-column: 2; grid-row: 1 / span 2; margin-block-start: 0; }
+  .b-settings-panel__section [id$='-error'] { grid-column: 2; grid-row: 3; }
+}
+
+.b-member-directory { display: grid; width: min(100%, 40rem); min-width: 0; margin: 0; padding: 0; list-style: none; overflow: hidden; border: var(--a-border-width) solid var(--a-color-ink); border-radius: var(--a-radius-large); background: var(--a-color-surface); }
+.b-member-directory__row { display: flex; align-items: center; gap: var(--a-space-3) var(--a-space-4); min-width: 0; padding: var(--a-space-3) var(--a-space-3) var(--a-space-3) var(--a-space-4); }
+.b-member-directory__row + .b-member-directory__row { border-block-start: var(--a-border-width) solid var(--a-color-ink); }
+.b-member-directory__row[data-disabled] .b-member-directory__identity { opacity: var(--a-state-disabled); }
+.b-member-directory__row > .a-stack { flex: none; }
+.b-member-directory__row > .b-member-directory__identity { flex: 1 1 auto; }
+.b-member-directory__row > .c-tag-wrap { flex: none; }
+.b-member-directory__identity { display: flex; align-items: center; gap: var(--a-space-3); min-width: 0; }
+.b-member-directory__person { display: grid; min-width: 0; }
+.b-member-directory__person > .a-type { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.b-member-directory-table { width: min(100%, 48rem); min-width: 0; overflow-x: auto; }
+.b-member-directory-table .c-table { min-width: 30rem; }
+.b-member-directory-table .c-table td { padding-block: var(--a-space-3); }
+.b-member-directory-table .c-tag-wrap { white-space: nowrap; }
+@media (max-width: 32rem) {
+  .b-member-directory__row { flex-wrap: wrap; }
+  .b-member-directory__row > .b-member-directory__identity { flex-basis: calc(100% - var(--a-size-compact) - var(--a-space-4)); }
+}

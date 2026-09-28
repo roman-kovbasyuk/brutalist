@@ -1,0 +1,18 @@
+/* Intro section: title → description → actions → media in the DOM at every width; split only moves media beside the copy. */
+.b-intro-section { width: 100%; min-width: 0; container: b-intro-section / inline-size; }
+.b-intro-section__inner { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--a-space-12); padding-block: var(--a-space-12); }
+.b-intro-section__copy { display: grid; align-content: start; gap: var(--a-space-8); max-width: 48rem; min-width: 0; }
+/* The lead paragraph steps up from body to the medium lead role; the heading keeps its size at every width. */
+.b-intro-section .c-section-heading__description { --a-type-body-size: var(--a-type-leadMedium-size); --a-type-body-line: var(--a-type-leadMedium-line); --a-type-body-weight: var(--a-type-leadMedium-weight); max-width: 40rem; }
+.b-intro-section .c-section-heading__content { row-gap: var(--a-space-4); }
+.b-intro-section__actions { align-items: center; }
+.b-intro-section__actions > * { max-width: 100%; }
+.b-intro-section__media { min-width: 0; }
+
+@container b-intro-section (min-width: 48rem) {
+  .b-intro-section__inner { padding-block: var(--a-space-16); }
+}
+@container b-intro-section (min-width: 56rem) {
+  .b-intro-section[data-layout='split'][data-has-media] .b-intro-section__inner { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: center; gap: var(--a-space-16); }
+  .b-intro-section[data-layout='split'] .b-intro-section__copy { max-width: none; }
+}

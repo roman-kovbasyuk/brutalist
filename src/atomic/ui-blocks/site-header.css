@@ -1,0 +1,20 @@
+/* Website header: the layout follows the header's own width, not the viewport. */
+.b-site-header { container-type: inline-size; width: 100%; min-width: 0; border-block-end: var(--a-border-width) solid var(--a-color-ink); background: var(--a-color-canvas); }
+.b-site-header__bar { display: flex; align-items: center; gap: var(--a-space-4); min-height: calc(var(--a-size-control) + var(--a-space-6)); padding: var(--a-space-3) var(--a-space-4); }
+.b-site-header__brand { display: inline-flex; flex: 0 1 auto; align-items: center; min-width: 0; min-height: var(--a-size-compact); margin-inline-start: calc(var(--a-space-2) * -1); padding-inline: var(--a-space-2); color: var(--a-color-ink); text-decoration: none; border-radius: var(--a-radius-small); }
+.b-site-header__brand:hover { background: var(--a-color-surface); }
+.b-site-header__brand > .a-type { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.b-site-header__navigation { display: none; flex: 1 1 auto; min-width: 0; }
+.b-site-header__end { display: flex; flex: none; align-items: center; gap: var(--a-space-3); margin-inline-start: auto; }
+.b-site-header__actions { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: var(--a-space-3); }
+.b-site-header__toggle { display: flex; }
+
+/* The drawer holds the same destinations and, on narrow layouts, the actions. */
+.b-site-header__drawer-actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--a-space-3); }
+
+/* Wide layout: destinations stay in the bar and the menu toggle leaves the layout (and the focus order). */
+@container (min-width: 48rem) {
+  .b-site-header__bar { gap: var(--a-space-6); padding-inline: var(--a-space-8); }
+  .b-site-header__navigation { display: block; }
+  .b-site-header__toggle { display: none; }
+}

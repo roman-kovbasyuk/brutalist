@@ -1,0 +1,11 @@
+.c-calendar { min-width: 20rem; }
+.c-calendar__heading { justify-content: space-between; flex-wrap: nowrap; align-items: center; }
+.c-calendar__heading [role="status"] { text-align: center; }
+.c-calendar__grid { display: grid; gap: var(--a-space-1); }
+.c-calendar__grid > [role="row"] { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: var(--a-space-1); text-align: center; }
+.c-calendar__weekdays { align-items: center; }
+.c-calendar__day { padding-inline: 0; min-width: 0; width: 100%; }
+.c-calendar__day[data-today="true"] { box-shadow: inset 0 0 0 var(--a-border-width) var(--a-color-ink); }
+.c-calendar__day[data-in-range="true"] { background: color-mix(in srgb, var(--a-color-accent) 18%, transparent); }
+.c-calendar__day[aria-pressed="true"] { position: relative; z-index: 1; }
+.c-calendar__announcement { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }

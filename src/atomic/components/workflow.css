@@ -1,0 +1,26 @@
+/* Steps sit on a track: solid ink behind completed steps, dashed ahead of the current one. */
+.c-workflow ol { display: flex; list-style: none; margin: 0; padding: 0; }
+.c-workflow li { position: relative; min-width: 0; }
+.c-workflow__step { display: flex; align-items: flex-start; gap: var(--a-space-3); padding: 0; border: 0; border-radius: var(--a-radius-small); background: transparent; color: var(--a-color-ink); font: inherit; text-align: start; cursor: pointer; }
+.c-workflow__step:not(button) { cursor: default; }
+.c-workflow__step:disabled { cursor: not-allowed; }
+.c-workflow__circle { display: grid; place-items: center; position: relative; z-index: 1; flex: none; width: var(--a-size-small); height: var(--a-size-small); border: var(--a-border-width) solid var(--a-color-ink); border-radius: var(--a-radius-pill); background: var(--a-color-surface); color: var(--a-color-ink); transition: transform var(--a-motion-fast) var(--a-motion-out), box-shadow var(--a-motion-fast) var(--a-motion-out); }
+.c-workflow li[data-state='complete'] .c-workflow__circle { background: var(--a-color-success); color: var(--a-color-on-accent); }
+.c-workflow li[data-state='current'] .c-workflow__circle { background: var(--a-color-accent); box-shadow: var(--a-shadow-small); color: var(--a-color-on-accent); }
+.c-workflow li[data-state='upcoming'] .c-workflow__circle { border-color: var(--a-color-secondary); color: var(--a-color-secondary); }
+.c-workflow__copy { display: grid; gap: 2px; min-width: 0; overflow-wrap: anywhere; }
+.c-workflow__step:is(button):not(:disabled):hover .c-workflow__circle { transform: translate(var(--a-motion-lift), var(--a-motion-lift)); box-shadow: var(--a-shadow-small); }
+.c-workflow__step:is(button):not(:disabled):hover .c-workflow__copy > :first-child { text-decoration: underline; text-underline-offset: var(--a-space-1); }
+
+.c-workflow[data-orientation='horizontal'] { width: 100%; }
+.c-workflow[data-orientation='horizontal'] li { flex: 1 1 0; padding-inline-end: var(--a-space-4); }
+.c-workflow[data-orientation='horizontal'] li:last-child { flex: 0 1 auto; padding-inline-end: 0; }
+.c-workflow[data-orientation='horizontal'] .c-workflow__step { flex-direction: column; gap: var(--a-space-2); }
+.c-workflow[data-orientation='horizontal'] li:not(:last-child)::after { content: ''; position: absolute; top: calc(var(--a-size-small) / 2); left: calc(var(--a-size-small) + var(--a-space-2)); right: var(--a-space-2); border-top: var(--a-border-width) dashed var(--a-color-secondary); }
+.c-workflow[data-orientation='horizontal'] li[data-state='complete']:not(:last-child)::after { border-top: var(--a-focus-width) solid var(--a-color-ink); transform: translateY(-50%); }
+
+.c-workflow[data-orientation='vertical'] ol { flex-direction: column; gap: var(--a-space-6); }
+.c-workflow[data-orientation='vertical'] .c-workflow__copy { padding-block-start: calc((var(--a-size-small) - var(--a-type-h7-line)) / 2); }
+.c-workflow[data-orientation='vertical'] li:not(:last-child)::before { content: ''; position: absolute; left: calc(var(--a-size-small) / 2); top: calc(var(--a-size-small) + var(--a-space-1)); bottom: calc(-1 * var(--a-space-6) + var(--a-space-1)); border-left: var(--a-border-width) dashed var(--a-color-secondary); }
+.c-workflow[data-orientation='vertical'] li[data-state='complete']:not(:last-child)::before { border-left: var(--a-focus-width) solid var(--a-color-ink); transform: translateX(-50%); }
+@media (prefers-reduced-motion: reduce) { .c-workflow__circle { transition: none; } .c-workflow__step:is(button):not(:disabled):hover .c-workflow__circle { transform: none; } }

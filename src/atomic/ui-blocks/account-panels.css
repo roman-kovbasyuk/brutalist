@@ -1,0 +1,17 @@
+.b-account-panel { width: 100%; max-width: 25rem; margin-inline: auto; }
+.b-account-panel form { width: 100%; }
+.b-account-panel__password { display: grid; gap: var(--a-space-2); }
+.b-account-panel__recovery { justify-self: end; }
+.b-account-panel__recovery > .a-type { font-size: var(--a-type-small-size); line-height: var(--a-type-small-line); }
+.b-account-panel__destination { overflow-wrap: anywhere; color: var(--a-color-ink); font-weight: var(--a-type-h7-weight); }
+.b-account-panel__providers { display: grid; gap: var(--a-space-3); }
+.b-account-panel__divider { display: flex; align-items: center; gap: var(--a-space-3); }
+.b-account-panel__divider::before,
+.b-account-panel__divider::after { content: ''; flex: 1; border-top: var(--a-border-width) solid var(--a-color-ink); }
+.b-account-panel__note { display: flex; align-items: flex-start; gap: var(--a-space-3); margin: 0; padding: var(--a-space-3) var(--a-space-4); border-radius: var(--a-radius-small); background: var(--a-color-canvas); font-size: var(--a-type-small-size); line-height: var(--a-type-small-line); overflow-wrap: anywhere; }
+.b-account-panel__note > .a-icon { margin-block-start: 2px; }
+.b-account-panel__result { display: grid; justify-items: start; gap: var(--a-space-4); }
+.b-account-panel__result > .c-alert { width: 100%; }
+/* Secondary routes sit below a rule so the primary action stays the last control in the form. */
+.b-account-panel__footer { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--a-space-2) var(--a-space-3); margin: 0; padding-block-start: var(--a-space-4); border-block-start: var(--a-border-width) solid var(--a-color-ink); }
+p.b-account-panel__footer { justify-content: flex-start; }

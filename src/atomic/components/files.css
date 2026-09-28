@@ -1,0 +1,22 @@
+.c-file-dropzone input { max-width: 100%; font: inherit; }
+.c-file-dropzone:has(input:disabled) { opacity: var(--a-state-disabled); }
+.c-file-dropzone { border-style: dashed; }
+.c-file-dropzone[data-state='dragging'] { background: var(--a-color-canvas) !important; border-color: var(--a-color-ink); box-shadow: inset 0 0 0 var(--a-border-width) var(--a-color-ink); }
+.c-file-dropzone__input { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+.c-file-dropzone[data-state='error'] { border-color: var(--a-color-danger); }
+.c-file-dropzone[data-state='success'] { border-color: var(--a-color-success); }
+
+/* File rows: status lives in the text line and the icon; the row itself stays white. */
+.c-file-list { display: grid; margin: 0; padding: 0; list-style: none; }
+.c-file-list li { display: flex; align-items: flex-start; gap: var(--a-space-3); min-width: 0; padding-block: var(--a-space-3); border-bottom: var(--a-border-width) solid var(--a-color-ink); }
+.c-file-list__icon { display: grid; flex: none; place-items: center; width: var(--a-size-small); height: var(--a-size-small); margin-block-start: 2px; border: var(--a-border-width) solid var(--a-color-ink); border-radius: var(--a-radius-small); background: var(--a-color-canvas); }
+.c-file-list [data-status='complete'] .c-file-list__icon { background: var(--a-color-success); color: var(--a-color-surface); }
+.c-file-list [data-status='error'] .c-file-list__icon { border-color: var(--a-color-danger); background: var(--a-color-surface); color: var(--a-color-danger); }
+.c-file-list__copy { display: grid; flex: 1 1 auto; gap: 2px; min-width: 0; }
+.c-file-list__name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.c-file-list [data-status='error'] .c-file-list__copy { color: var(--a-color-danger); }
+.c-file-list__error { overflow-wrap: anywhere; }
+.c-file-list__progress { display: block; padding-block-start: var(--a-space-1); }
+.c-file-list__progress .c-progress__label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.c-file-list__actions { display: flex; flex: none; gap: var(--a-space-1); }
+.c-file-list__progress .c-progress-bar__track { height: var(--a-space-2); }

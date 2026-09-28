@@ -1,0 +1,7 @@
+.b-sidebar { display: flex; flex-direction: column; justify-content: space-between; gap: var(--a-space-8); width: 20rem; max-width: 100%; min-height: 36rem; border: 0; border-inline-end: var(--a-border-width) solid var(--a-color-ink); }
+.b-sidebar__header { display: flex; align-items: center; gap: var(--a-space-3); min-width: 0; min-height: var(--a-size-compact); }
+.b-sidebar__brand { flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.b-sidebar__group { padding-inline: var(--a-space-2); color: var(--a-color-secondary); }
+.b-sidebar__projects { margin-inline: calc(-1 * var(--a-space-1)); padding-inline: var(--a-space-1); }
+.b-sidebar__account { display: grid; padding-block-start: var(--a-space-4); border-block-start: var(--a-border-width) solid var(--a-color-ink); }
+.b-sidebar__account .c-menu-trigger { justify-content: flex-start; }

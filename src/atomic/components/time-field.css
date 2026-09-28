@@ -1,0 +1,10 @@
+/* Shares the date field; the popover lists permitted slots at the field's step. */
+.c-time-field { width: min(100%, 10rem); max-width: 100%; align-self: flex-start; }
+.c-time-popup { width: 10rem; min-width: 0; max-height: min(18rem, var(--radix-popover-content-available-height, 18rem)); padding: var(--a-space-1); overflow-y: auto; scrollbar-width: thin; }
+.c-time-popup__slots { display: grid; gap: 2px; }
+.c-time-popup__slot { justify-content: flex-start; width: 100%; font-variant-numeric: tabular-nums; }
+.c-time-popup__slot:not(:disabled):hover { transform: none; box-shadow: none; border-color: transparent; background: var(--a-color-canvas); }
+.c-time-popup__slot[aria-pressed='true']:not(:disabled):hover { border-color: var(--a-color-ink); background: var(--a-color-accent); }
+.c-time-popup__slot:focus-visible { outline: none; box-shadow: inset 0 0 0 var(--a-border-width) var(--a-color-ink); }
+/* Button text weight comes from the h6 role; unselected slots read at body weight. */
+.c-time-popup__slot:not([aria-pressed='true']) { --a-type-h6-weight: var(--a-type-body-weight); }

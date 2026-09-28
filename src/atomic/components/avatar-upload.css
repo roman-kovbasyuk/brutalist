@@ -1,0 +1,11 @@
+.c-avatar-upload { position: relative; display: inline-grid; flex: none; }
+.c-avatar-upload__button { position: relative; display: grid; padding: 0; border: 0; border-radius: var(--a-radius-pill); background: transparent; cursor: pointer; transition: transform var(--a-motion-fast) var(--a-motion-out), box-shadow var(--a-motion-fast) var(--a-motion-out); }
+.c-avatar-upload__button .c-avatar { border-color: var(--a-color-ink); }
+.c-avatar-upload__button:not(:disabled):is(:hover, :focus-visible), .c-avatar-upload[data-dragging] .c-avatar-upload__button { transform: translate(var(--a-motion-lift), var(--a-motion-lift)); box-shadow: var(--a-shadow-small); }
+.c-avatar-upload__button:not(:disabled):active { transform: none; box-shadow: none; }
+.c-avatar-upload__button:focus-visible { outline: var(--a-focus-width) solid var(--a-color-ink); outline-offset: var(--a-focus-offset); }
+.c-avatar-upload__button:disabled { cursor: not-allowed; opacity: var(--a-state-disabled); }
+.c-avatar-upload__badge { position: absolute; right: -2px; bottom: -2px; display: grid; place-items: center; width: 24px; height: 24px; border: var(--a-border-width) solid var(--a-color-ink); border-radius: var(--a-radius-pill); background: var(--a-color-surface); color: var(--a-color-ink); }
+.c-avatar-upload[data-size='large'] .c-avatar-upload__badge { width: 28px; height: 28px; }
+.c-avatar-upload[data-dragging] .c-avatar { outline: var(--a-focus-width) dashed var(--a-color-ink); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { .c-avatar-upload__button { transition: none; } .c-avatar-upload__button:not(:disabled):is(:hover, :focus-visible) { transform: none; } }

@@ -1,0 +1,14 @@
+/* Spinner: the block rests briefly on each slot and eases into the next, a quarter turn at a time. */
+.c-spinner__mark { flex: none; width: var(--a-icon-large); height: var(--a-icon-large); overflow: visible; }
+.c-spinner__slots rect { fill: none; stroke: var(--a-color-secondary); stroke-width: 1; stroke-dasharray: 2 2; }
+.c-spinner__block { fill: var(--a-color-accent); stroke: var(--a-color-ink); stroke-width: 1; animation: c-spinner-walk 1.8s infinite; }
+@keyframes c-spinner-walk {
+  0%, 8% { transform: translate(0, 0); animation-timing-function: cubic-bezier(0.65, 0, 0.35, 1); }
+  25%, 33% { transform: translate(12px, 0); animation-timing-function: cubic-bezier(0.65, 0, 0.35, 1); }
+  50%, 58% { transform: translate(12px, 12px); animation-timing-function: cubic-bezier(0.65, 0, 0.35, 1); }
+  75%, 83% { transform: translate(0, 12px); animation-timing-function: cubic-bezier(0.65, 0, 0.35, 1); }
+  100% { transform: translate(0, 0); }
+}
+.c-skeleton > span { height: var(--a-space-4); border-radius: var(--a-radius-small); background: var(--a-color-canvas); }
+.c-skeleton > span:last-child { width: 65%; }
+@media (prefers-reduced-motion: reduce) { .c-spinner__block { animation: none; } }

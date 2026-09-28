@@ -1,0 +1,160 @@
+# brutalist-design-system 0.1.5-atomic.0
+
+> React 19 components and blocks in a Brutalist style. Import every component and block from 'brutalist-design-system'. Wrap the application in <AtomsRoot> (theme="light" | "dark").
+
+Install: `npm install brutalist-design-system`, then `import 'brutalist-design-system/styles.css'`.
+
+Basics (tokens, type, icons, layout) → Components (controls) → Blocks (complete tasks). Compose blocks from components; never restyle a component to change its behaviour.
+
+## Components
+- **NavigationList** (`navigation-list`): Users need stable access to pages or major sections of an application.
+- **NavigationMenu** (`navigation-menu`): A page header needs a compact set of primary destinations with one-level grouped links.
+- **AttachmentArea** (`attachment-area`): Files support a primary writing task, such as adding evidence to a note or a document to a prompt.
+- **Button** (`button`): The user explicitly initiates an operation: create a campaign, save changes, upload a selection, or open a dialog. For navigation to another resource, use a link through TextAction.
+- **Disclosure** (`disclosure`): One named section of supporting content should open in place while the surrounding page remains available.
+- **Toolbar** (`toolbar`): Several adjacent commands act on the same content and benefit from one keyboard entry point.
+- **ToggleButton** (`toggle-button`): A single button turns an independent mode on or off.
+- **FeedbackButton** (`feedback-button`): A small operation can acknowledge success in the same control, such as copying a code sample or a share link.
+- **Panel** (`panel`): A coherent set of content and controls needs a named boundary, such as campaign details, an activity summary, or a documentation example.
+- **TextField** (`text-field`): The user enters a short, single-line value such as a project name, email address, or reference identifier.
+- **Checkbox** (`checkbox`): Choices are independent: include motion, select several records, or agree to a specific condition before submitting a form.
+- **CheckboxCard** (`checkbox-card`): An independent choice needs a larger target and one short supporting description.
+- **Fieldset** (`fieldset`): Several related native fields need one group name, shared instructions, or shared error context.
+- **RadioGroup** (`radio-group`): The user must choose one option and benefits from seeing every alternative at once, such as export orientation or a delivery method.
+- **RadioCardGroup** (`radio-card-group`): A mutually exclusive choice has a few alternatives that benefit from side-by-side comparison and supporting descriptions.
+- **Toggle** (`toggle`): A persistent setting can be understood as on or off and takes effect immediately, such as email notifications or a preview mode.
+- **TextArea** (`textarea`): The user writes multiple lines: a campaign brief, comment, rationale, or description.
+- **Select** (`dropdowns`): A field chooses values from a defined set. Decide first whether the answer is one item or several, and whether users need to search.
+- **Tag** (`tag`): An item needs a short label, category, active filter, or workflow state. The plain form is a white tag with a black outline and no icon.
+- **TagInput** (`tag-input`): People add several short labels to one record, such as topics or skills, and may type new ones.
+- **Breadcrumbs** (`breadcrumbs`): A page belongs to a meaningful hierarchy and users may need to move to its parents.
+- **Pagination** (`pagination`): Users browse a finite result set in pages and benefit from a stable position, such as an audit log or campaign directory.
+- **NumberStepper** (`number-stepper`): The user adjusts a bounded quantity and often changes it by a small increment, such as copies, seats, or generated variations.
+- **Slider** (`slider`): Adjusting a value relative to a known range is more important than entering an exact number, such as preview zoom or image quality.
+- **RangeSlider** (`range-slider`): Users define an interval within known bounds, such as a budget or duration filter.
+- **Rating** (`rating`): Users express a subjective score on a short, ordered scale, such as rating the usefulness of a template after using it.
+- **ProgressBar** (`progress-bar`): The user is waiting for work with measurable completion, such as uploading files, generating assets, or exporting a report. The horizontal form leaves room for a task label and useful detail.
+- **ProgressRing** (`progress-ring`): A compact, known completion ratio belongs beside a named task or summary, such as “8 of 10 onboarding tasks complete.”
+- **DescriptionList** (`description-list`): Several related terms need their corresponding descriptions without a repeated table header.
+- **Stat** (`stat`): A single measured value needs a clear label and enough context to interpret it.
+- **Timeline** (`timeline`): People need to follow a supplied sequence of dated events.
+- **Meter** (`meter`): A value describes a bounded measurement such as quota, storage, or capacity.
+- **SectionHeading** (`section-heading`): A content section needs a consistent heading, optional context, and optional adjacent actions.
+- **PasswordStrength** (`password-strength`): A form needs to show which supplied password requirements have been met.
+- **Alert** (`alert`): An important message belongs beside the content it explains: a validation summary, a delayed export, a save result, or a condition that changes the user's next step.
+- **InlineText** (`inline-text`): A small, existing value can be edited directly in its context, such as renaming a project or adjusting a short description.
+- **TextAction** (`text-action`): Navigation or a secondary action should sit comfortably within prose, metadata, or a compact message. Examples include “View invoice,” “Read the guide,” and “Clear filters.”
+- **Form** (`form`): Related inputs contribute to one submission, such as creating a workspace or saving campaign settings.
+- **FormActions** (`form-actions`): A form has one submission point and an optional way to abandon changes. Use it for account settings, a new project form, or editing a contact.
+- **SearchField** (`search-field`): A query narrows or locates content, such as campaigns, people, files, or documentation pages.
+- **PasswordField** (`password-field`): The user enters a secret, such as a sign-in password or a replacement password in account settings.
+- **DatePicker** (`date-picker`): A user chooses a calendar date, such as a launch day, due date, or reporting cutoff.
+- **Calendar** (`calendar`): A date must be picked in context and the calendar should stay visible, such as a booking sidebar.
+- **DateRangePicker** (`date-range-picker`): People choose a start and an end date for a report, a stay or a filter.
+- **TimeField** (`time-field`): People enter a local time of day, such as a reminder or opening hours.
+- **Menu** (`menu`): An object has several contextual commands that do not all need permanent visibility, such as Edit, Duplicate, Download, and Delete.
+- **Dialog** (`dialog`): A focused decision or short task needs to temporarily interrupt the current flow, such as confirming workspace deletion or editing a small set of critical details.
+- **Drawer** (`drawer`): Supporting navigation or a focused detail task can enter from the edge while retaining visual context of the underlying page.
+- **Popover** (`popover`): A small amount of contextual content or a few controls should appear near their trigger, such as display options or a compact filter panel.
+- **Tooltip** (`tooltip`): A short, optional explanation helps users understand a term or control without expanding the whole page.
+- **Toast** (`toast`): Brief feedback confirms an action without interrupting the current activity, such as saving a draft or changing a setting.
+- **Tabs** (`tabs`): Peer content sections share one context and the user benefits from switching between them, such as Overview, Activity, and Files within a project.
+- **WorkflowSteps** (`workflow-steps`): A process has named stages and users need to understand both position and completion, such as Brief, Review, and Publish.
+- **Table** (`table`): Users compare records across the same attributes, such as project name, owner, status, and last update.
+- **Combobox** (`dropdowns`): A field chooses values from a defined set. Decide first whether the answer is one item or several, and whether users need to search.
+- **MultiSelect** (`dropdowns`): A field chooses values from a defined set. Decide first whether the answer is one item or several, and whether users need to search.
+- **InlineConfirmation** (`inline-confirmation`): A localized destructive action needs one short confirmation while its target remains visible, such as deleting a draft from a row.
+- **FileDropzone** (`file-dropzone`): Selecting one or more files is a main step, such as importing a contact list or uploading campaign assets.
+- **FileList** (`file-list`): Users need to review files selected for a task or already associated with a record.
+- **EmptyState** (`empty-state`): A collection or workspace has no content to show and the reason or next step needs explanation.
+- **Spinner** (`spinner`): An operation is running but its completion cannot be measured, and the surrounding area can remain compact.
+- **Skeleton** (`skeleton`): Text-like content is loading and preserving its approximate space makes the page easier to follow.
+- **ButtonGroup** (`button-group`): Several actions operate on the same object and should be understood together. Examples include “Save / Save as draft / More,” or “Download PDF / Download CSV.”
+- **FancyButton** (`fancy-button`): One action needs a short supporting line before the user can confidently choose it. This is useful for starting setup, opening a workspace chooser, or beginning an import with a meaningful consequence.
+- **Avatar** (`avatar`): Recognizing a person helps the user scan ownership, comments, activity, or assignments.
+- **AvatarGroup** (`avatar-group`): A small collection of people can be summarized visually, such as project collaborators or assigned reviewers.
+- **Badge** (`badge`): A brief, non-interactive annotation helps users scan a record: “New,” “Beta,” “Approved,” or a plan category.
+- **Banner** (`banner`): A condition affects the whole workspace or a substantial area of the current task, such as maintenance, read-only mode, or an integration outage.
+- **Kbd** (`kbd`): A real keyboard shortcut can speed up an action users already understand.
+- **ColorPicker** (`color-picker`): Choosing an actual color is part of the user's work, such as configuring a brand accent or editing a visual asset.
+- **DigitInput** (`digit-input`): A short, fixed-length numeric code benefits from separated positions, such as a verification code.
+- **Hint** (`hint`): A field needs short, persistent guidance or a nearby correction message.
+- **Label** (`label`): A standalone input needs a persistent visible name. Prefer the built-in label prop when the shared field already provides one.
+- **Accordion** (`accordion`): Users need to inspect selected sections of related information without reading every section at once, such as FAQs or optional configuration details.
+- **DotStepper** (`dot-stepper`): A short, low-complexity sequence needs a compact position indicator and the current screen already explains the content.
+- **VerticalStepper** (`vertical-stepper`): A staged process needs persistent names and, when useful, explanations alongside the work. Typical contexts are onboarding, setup, and review preparation.
+- **CommandMenu** (`command-menu`): Experienced users benefit from searching a set of application actions, such as creating a project or opening settings.
+- **NotificationList** (`notification-list`): A popover or panel shows a short feed of recent events: who or what, the message and when.
+- **StatCard** (`stat-card`): A single figure needs its label, change against a period and an optional icon, as a card on its own.
+- **Sparkline** (`sparkline`): A trend matters more than exact values, beside a figure or in a small tile.
+- **LineChart** (`line-chart`): People compare a value over time, for one to three series.
+- **BarChart** (`bar-chart`): People compare values across categories or a few periods, grouped or stacked.
+- **DonutChart** (`donut-chart`): A total splits into two to six parts and the share of each part matters.
+- **BarList** (`bar-list`): A ranked list of items with values, such as top pages or low stock.
+- **Gauge** (`gauge`): One part of a whole needs emphasis, such as seats used or a plan share.
+- **ProportionBar** (`proportion-bar`): A compact split of two to six parts, often under a figure.
+- **Heatmap** (`heatmap`): Peaks across two categories matter, such as weekday by hour or weekday by month.
+- **Tile** (`tile`): A dashboard needs one idea per box: a figure, a chart or a short list.
+- **Figure** (`figure`): A headline number with its caption and change sits inside a tile.
+- **TabBar** (`tab-bar`): A phone app has three to five top-level destinations that people switch between often.
+
+## Blocks
+- **AppShell** (`app-shell`): An application needs a persistent frame: sidebar navigation, a top bar with search and actions, and a menu drawer on small screens.
+- **PageHeader** (`page-header`): An application page needs its title with breadcrumbs, a short description, status and page actions.
+- **SidebarPanel** (`sidebar`): A workspace needs a persistent navigation structure with a primary creation action, project access, and account controls.
+- **PromptInput** (`prompt-input`): A user submits a written instruction, optionally with files, to start a generation or assistance task.
+- **CodeExample** (`code-example`): Documentation needs a live preview, its exact source, and an action to copy that source.
+- **WorkspaceHeader** (`workspace-header`): A workspace page needs a section introduction, optional search and a small set of related actions.
+- **WorkspaceSwitcher** (`workspace-switcher`): People need to change the current workspace or collection without losing the broader application context.
+- **AccountMenu** (`account-menu`): A user needs access to personal destinations or commands from a consistent identity control.
+- **PrimaryNavigation** (`primary-navigation`): A persistent rail needs to connect the product's main destinations with an optional brand link and supporting footer content.
+- **BreadcrumbHeader** (`breadcrumb-header`): A detail page needs its location within a hierarchy, a clear page title and optional page actions.
+- **CommandSearch** (`command-search`): A command dialog should also help users reopen a small set of recent destinations.
+- **SignInPanel** (`sign-in`): A product needs one controlled entry point for password sign-in or an email-link request.
+- **RegistrationPanel** (`registration`): People need to create an account with an application-defined set of required identity details and consent.
+- **RecoveryPanel** (`recovery`): A user needs to request account recovery through an application-owned delivery flow.
+- **VerificationPanel** (`verification`): An application requires a one-time numeric code to confirm an address or continue a task.
+- **ProfileSummary** (`profile-summary`): A person or organization needs a concise identity card with selected facts and optional actions.
+- **ProfileSettings** (`profile-settings`): People can review or edit their name, email, description, and optionally request a profile image change.
+- **PreferencesPanel** (`preferences-panel`): Several related settings need one save point, such as notification choices or appearance options.
+- **MemberDirectory** (`member-directory`): People need to identify workspace members and their contact details or roles.
+- **AccessPanel** (`access-panel`): A user needs to review or edit a role and the permissions associated with one resource.
+- **SiteHeader** (`site-header`): The top of a public website or marketing page needs the brand, a handful of main pages and one or two actions such as signing in or starting a trial.
+- **ReleaseNotice** (`release-notice`): A website needs to announce something time-sensitive, such as a new release or an early-access offer.
+- **IntroSection** (`intro-section`): A page or a major area of a website opens by saying what it is about.
+- **CapabilityGrid** (`capability-grid`): A website explains a set of concrete features, each worth a name and a sentence.
+- **ImpactSummary** (`impact-summary`): A website presents two to six measured outcomes.
+- **ProcessSteps** (`process-steps`): A website explains a sequence, such as how to get started.
+- **PlanComparison** (`plan-comparison`): A pricing page compares two to four plans of one service.
+- **QuestionsSection** (`questions-section`): People look up short answers before or after deciding, such as on a pricing page.
+- **SubscriptionSection** (`subscription-section`): A website invites readers to join a mailing list or a waitlist.
+- **ActionSection** (`action-section`): Readers have enough context and need one clear next step.
+- **SiteFooter** (`site-footer`): A public website page ends with its brand, secondary destinations and legal details.
+
+## Templates
+- **AdminShellPage** (`template-admin-admin-shell`)
+- **DashboardPage** (`template-admin-dashboard`)
+- **CustomersPage** (`template-admin-data-table`)
+- **CustomerDetailPage** (`template-admin-record-detail`)
+- **SettingsPage** (`template-admin-settings`)
+- **MenusPage** (`template-admin-menus`)
+- **SignInPage** (`template-admin-sign-in`)
+- **SignUpPage** (`template-admin-sign-up`)
+- **ForgotPasswordPage** (`template-admin-forgot-password`)
+- **VerifyPage** (`template-admin-verify`)
+- **LandingPage** (`template-landing-hero`)
+- **LandingPage** (`template-landing-features`)
+- **LandingPage** (`template-landing-customers`)
+- **LandingPage** (`template-landing-pricing`)
+- **LandingPage** (`template-landing-faq`)
+- **LandingPage** (`template-landing-get-started`)
+- **MobileApp** (`template-mobile-welcome`)
+- **MobileApp** (`template-mobile-home`)
+- **MobileApp** (`template-mobile-explore`)
+- **MobileApp** (`template-mobile-detail`)
+- **MobileApp** (`template-mobile-checkout`)
+- **MobileApp** (`template-mobile-bookings`)
+- **MobileApp** (`template-mobile-saved`)
+- **MobileApp** (`template-mobile-profile`)
+
+Full details, props and example sources: ai/manifest.json in this package.

@@ -1,0 +1,17 @@
+/* Website footer: the layout follows the footer's own width, not the viewport. */
+.b-site-footer { container-type: inline-size; width: 100%; min-width: 0; border-block-start: var(--a-border-width) solid var(--a-color-ink); background: var(--a-color-canvas); }
+.b-site-footer__inner { padding: var(--a-space-12) var(--a-space-4) var(--a-space-8); }
+.b-site-footer__main { display: grid; gap: var(--a-space-8); }
+.b-site-footer__identity { max-width: 24rem; }
+.b-site-footer__brand { display: inline-flex; align-self: flex-start; align-items: center; min-height: var(--a-size-compact); margin-inline-start: calc(var(--a-space-2) * -1); padding-inline: var(--a-space-2); color: var(--a-color-ink); text-decoration: none; border-radius: var(--a-radius-small); }
+.b-site-footer__brand:hover { background: var(--a-color-surface); }
+.b-site-footer__links, .b-site-footer__legal { margin: 0; padding: 0; list-style: none; }
+.b-site-footer__links { display: grid; justify-items: start; gap: var(--a-space-3); }
+.b-site-footer__publication { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--a-space-3) var(--a-space-6); }
+.b-site-footer__legal { display: flex; flex-wrap: wrap; gap: var(--a-space-2) var(--a-space-4); }
+
+/* Wide: identity beside the link groups. */
+@container (min-width: 48rem) {
+  .b-site-footer__inner { padding-inline: var(--a-space-8); }
+  .b-site-footer__main { grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: var(--a-space-12); }
+}
